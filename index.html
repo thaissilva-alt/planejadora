@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- v2.1 -->
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -382,8 +382,10 @@ body.dark .who-bar{background:#221318;}
 
 <div class="mo" id="modalUser">
   <div class="md"><div class="md-title">Entrar na planejadora 🌸</div>
-    <p style="font-size:0.83rem;color:var(--ts);margin-bottom:1rem">Digite seu nome para entrar. Se ainda não tem perfil, ele será criado automaticamente.</p>
-    <div class="fg" style="margin-bottom:8px"><label>Meu nome</label><input type="text" id="mUN" placeholder="Ex: Thaís"></div>
+    <p style="font-size:0.83rem;color:var(--ts);margin-bottom:1rem">Escolha seu perfil ou crie um novo.</p>
+    <div id="quickLoginBtns" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem"></div>
+    <hr style="border:none;border-top:1px solid var(--bd);margin-bottom:1rem">
+    <div class="fg" style="margin-bottom:8px"><label>Ou digite um novo nome</label><input type="text" id="mUN" placeholder="Ex: Kaliany"></div>
     <div class="md-actions"><button class="btn btn-g" onclick="closeModals()">Cancelar</button><button class="btn btn-p" onclick="doLogin()">Entrar</button></div>
   </div>
 </div>
@@ -496,7 +498,16 @@ function geral(){return window.__G.geral;}
 function allUserNames(){return Object.keys(window.__G.users);}
 
 function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
-function openModal(id){document.getElementById(id).classList.add('open');}
+function openModal(id){
+  document.getElementById(id).classList.add('open');
+  if(id==='modalUser'){
+    const btns=document.getElementById('quickLoginBtns');
+    if(btns){
+      const users=allUserNames();
+      btns.innerHTML=users.length?users.map(u=>{const av=getAvatar(u);return`<button class="btn btn-g" style="display:flex;align-items:center;gap:6px" onclick="quickLogin('${u}')"><span class="avatar" style="background:${av.bg};color:white;width:22px;height:22px;font-size:0.7rem">${av.letter}</span>${u}</button>`;}).join(''):'<span style="font-size:0.8rem;color:var(--ts)">Nenhum perfil ainda — crie um abaixo!</span>';
+    }
+  }
+}
 function closeModals(){document.querySelectorAll('.mo').forEach(m=>m.classList.remove('open'));}
 document.querySelectorAll('.mo').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)closeModals();}));
 function showSec(id,btn){
@@ -523,6 +534,10 @@ function rWho(){
 
 async function doLogin(){
   const name=document.getElementById('mUN').value.trim();if(!name)return;
+  await quickLogin(name);
+}
+
+async function quickLogin(name){
   window.__G.me=name;localStorage.setItem('planner_me',name);
   if(!window.__G.users[name]){
     window.__G.users[name]=window.__fb.ddUser();
@@ -1081,7 +1096,7 @@ function calcMM(){
 const AVATAR_COLORS=['#e8798a','#9b7fe8','#7fc9e8','#e8b07f','#7fe8a0','#e87fb0','#7fa4e8'];
 function getAvatar(name){const i=name.charCodeAt(0)%AVATAR_COLORS.length;return{bg:AVATAR_COLORS[i],letter:name.charAt(0).toUpperCase()};}
 
-Object.assign(window,{showSec,openModal,closeModals,doLogin,rmUser,opAula,saveAula,rmAula,saveTrab,rmTrab,toggleEntrega,saveEvento,rmEvento,changeMonth,addDisc,addNota,upNota,rmNota,rmDisc,rMedia,addEstudo,togEst,rmEst,saveEmail,testEmail,rConfig,toggleDark,doSearch,setPomMode,pomStart,pomPause,pomReset,calcMM,loadNotaRap,saveNotaRap,exportPDF});
+Object.assign(window,{showSec,openModal,closeModals,doLogin,quickLogin,rmUser,opAula,saveAula,rmAula,saveTrab,rmTrab,toggleEntrega,saveEvento,rmEvento,changeMonth,addDisc,addNota,upNota,rmNota,rmDisc,rMedia,addEstudo,togEst,rmEst,saveEmail,testEmail,rConfig,toggleDark,doSearch,setPomMode,pomStart,pomPause,pomReset,calcMM,loadNotaRap,saveNotaRap,exportPDF});
 </script>
 </body>
 </html>

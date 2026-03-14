@@ -143,6 +143,67 @@ input:focus,select:focus,textarea:focus{border-color:var(--ac);background:var(--
 .ltxt{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--mauve);font-style:italic;}
 .cal-wrap-2col{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
 @media(max-width:750px){.cal-wrap-2col{grid-template-columns:1fr;}}
+
+/* ── DARK MODE ── */
+body.dark{--r50:#2a1a1f;--r100:#3d2228;--r200:#5a3040;--blush:#1a1015;--petal:#221318;--mauve:#e0a0b0;--dusty:#c08090;--td:#f0d0d8;--ts:#c090a0;--wh:#2a1820;--bd:#4a2838;--ac:#e8798a;--dg:#f08080;}
+body.dark header,body.dark nav{background:#2a1820;}
+body.dark .card,body.dark .trab-item,body.dark .ncard,body.dark .eblock,body.dark .dcol,body.dark .cal-grid-w{background:#2a1820;border-color:#4a2838;}
+body.dark input,body.dark select,body.dark textarea{background:#1a1015;border-color:#4a2838;color:#f0d0d8;}
+body.dark .btn-g{background:#3d2228;color:#e0a0b0;}
+body.dark .mo .md{background:#2a1820;}
+body.dark .aitem,body.dark .evitem{background:#3d2228;}
+body.dark .rnotice{background:#2a2010;border-color:#6a5000;}
+body.dark .rbubble{background:#2a1820;border-color:#4a2838;}
+body.dark .lov{background:rgba(20,8,12,0.95);}
+body.dark .eitem{border-color:#3d2228;}
+body.dark .who-bar{background:#221318;}
+
+/* ── SEARCH BAR ── */
+.search-wrap{display:flex;align-items:center;gap:8px;margin-bottom:1rem;}
+.search-input{flex:1;padding:8px 14px;border-radius:20px;border:1.5px solid var(--bd);background:var(--r50);font-size:0.85rem;color:var(--td);}
+.search-input:focus{border-color:var(--ac);}
+.search-results{background:var(--wh);border:1px solid var(--bd);border-radius:12px;padding:1rem;margin-bottom:1rem;display:none;}
+.search-results.show{display:block;}
+.sr-item{padding:8px 0;border-bottom:1px solid var(--r50);font-size:0.83rem;display:flex;align-items:center;gap:8px;}
+.sr-item:last-child{border-bottom:none;}
+.sr-tag{font-size:0.68rem;padding:2px 7px;border-radius:8px;background:var(--petal);color:var(--mauve);font-weight:500;}
+
+/* ── POMODORO ── */
+.pom-wrap{text-align:center;padding:1.5rem;}
+.pom-ring{width:160px;height:160px;border-radius:50%;border:8px solid var(--r200);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;position:relative;background:var(--wh);box-shadow:0 4px 20px rgba(200,100,120,0.15);}
+.pom-ring svg{position:absolute;inset:-8px;width:calc(100% + 16px);height:calc(100% + 16px);}
+.pom-time{font-size:2.4rem;font-family:'Playfair Display',serif;color:var(--mauve);font-weight:400;}
+.pom-label{font-size:0.75rem;color:var(--ts);margin-top:-4px;}
+.pom-btns{display:flex;gap:8px;justify-content:center;margin-top:1rem;flex-wrap:wrap;}
+.pom-cycles{font-size:0.8rem;color:var(--ts);margin-top:8px;}
+.pom-mode-btns{display:flex;gap:6px;justify-content:center;margin-bottom:1rem;}
+.pom-mode-btn{padding:5px 14px;border-radius:16px;border:1.5px solid var(--bd);background:var(--wh);font-size:0.78rem;color:var(--ts);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.pom-mode-btn.active{background:var(--ac);color:white;border-color:var(--ac);}
+
+/* ── ANOTAÇÕES ── */
+.nota-rap-area{width:100%;min-height:120px;border:1.5px solid var(--bd);border-radius:11px;padding:10px 13px;font-size:0.86rem;font-family:'DM Sans',sans-serif;resize:vertical;background:var(--r50);color:var(--td);}
+.nota-rap-area:focus{border-color:var(--ac);background:var(--wh);outline:none;}
+
+/* ── PRIORIDADE ── */
+.prior-alta{border-left:4px solid #e53935!important;}
+.prior-normal{border-left:4px solid var(--ac)!important;}
+.prior-baixa{border-left:4px solid #81c784!important;}
+.prior-badge{font-size:0.68rem;padding:2px 7px;border-radius:8px;font-weight:600;}
+.prior-badge.alta{background:#ffeaea;color:#c62828;}
+.prior-badge.normal{background:var(--petal);color:var(--mauve);}
+.prior-badge.baixa{background:#e8f5e9;color:#2e7d32;}
+
+/* ── MEDIA MINIMA ── */
+.mm-result{background:var(--r50);border-radius:10px;padding:12px 16px;margin-top:10px;font-size:0.85rem;text-align:center;}
+.mm-big{font-size:1.5rem;font-family:'Playfair Display',serif;color:var(--mauve);}
+
+/* ── AVATAR ── */
+.avatar{width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;flex-shrink:0;}
+.who-chip .avatar{width:22px;height:22px;font-size:0.7rem;margin-right:2px;}
+
+/* ── DARK MODE TOGGLE ── */
+.dark-toggle{background:none;border:1.5px solid var(--bd);border-radius:20px;padding:4px 10px;cursor:pointer;font-size:0.8rem;color:var(--ts);font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.dark-toggle:hover{background:var(--r100);}
 </style>
 </head>
 <body>
@@ -152,6 +213,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--ac);background:var(--
 <header>
   <div class="logo">🌸 Planejadora Acadêmica</div>
   <div class="hdr-right">
+    <button class="dark-toggle" onclick="toggleDark()" id="darkBtn">🌙 Escuro</button>
     <span><span class="sync-dot" id="sd"></span><span class="sync-txt" id="st">Conectando...</span></span>
   </div>
 </header>
@@ -168,10 +230,17 @@ input:focus,select:focus,textarea:focus{border-color:var(--ac);background:var(--
   <button class="nb" onclick="showSec('calendario',this)">🗓️ Calendário</button>
   <button class="nb" onclick="showSec('notas',this)">📊 Notas</button>
   <button class="nb" onclick="showSec('estudos',this)">📚 Estudos</button>
+  <button class="nb" onclick="showSec('pomodoro',this)">⏱️ Pomodoro</button>
   <button class="nb" onclick="showSec('config',this)">⚙️ Meu Perfil</button>
 </nav>
 
 <div class="main">
+
+  <!-- BUSCA RÁPIDA -->
+  <div class="search-wrap">
+    <input class="search-input" type="text" id="searchInput" placeholder="🔍 Buscar em toda a planejadora..." oninput="doSearch(this.value)">
+  </div>
+  <div class="search-results" id="searchResults"></div>
 
   <!-- AGENDA -->
   <div class="sec active" id="sec-agenda">
@@ -204,6 +273,58 @@ input:focus,select:focus,textarea:focus{border-color:var(--ac);background:var(--
     <div id="estudosContent"></div>
   </div>
 
+  <!-- POMODORO -->
+  <div class="sec" id="sec-pomodoro">
+    <div class="sec-hdr"><div class="sec-title">⏱️ Cronômetro Pomodoro</div><div class="sec-sub">Foco de 25min + pausas para estudar melhor</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <div class="card">
+        <div class="pom-mode-btns">
+          <button class="pom-mode-btn active" id="btnFoco" onclick="setPomMode('foco')">🎯 Foco (25min)</button>
+          <button class="pom-mode-btn" id="btnCurta" onclick="setPomMode('curta')">☕ Pausa curta (5min)</button>
+          <button class="pom-mode-btn" id="btnLonga" onclick="setPomMode('longa')">🌿 Pausa longa (15min)</button>
+        </div>
+        <div class="pom-wrap">
+          <div class="pom-ring">
+            <svg viewBox="0 0 176 176"><circle cx="88" cy="88" r="80" fill="none" stroke="var(--r200)" stroke-width="8"/><circle id="pomCircle" cx="88" cy="88" r="80" fill="none" stroke="var(--ac)" stroke-width="8" stroke-linecap="round" stroke-dasharray="502" stroke-dashoffset="0" transform="rotate(-90 88 88)" style="transition:stroke-dashoffset 1s linear"/></svg>
+            <div><div class="pom-time" id="pomTime">25:00</div><div class="pom-label" id="pomLabel">Foco</div></div>
+          </div>
+          <div class="pom-btns">
+            <button class="btn btn-p" onclick="pomStart()" id="pomStartBtn">▶ Iniciar</button>
+            <button class="btn btn-g" onclick="pomPause()" id="pomPauseBtn" style="display:none">⏸ Pausar</button>
+            <button class="btn btn-g" onclick="pomReset()">↺ Reiniciar</button>
+          </div>
+          <div class="pom-cycles" id="pomCycles">🌸 Ciclos completados hoje: 0</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">📝 Anotações rápidas por disciplina</div>
+        <div class="fr" style="margin-bottom:8px">
+          <div class="fg"><label>Disciplina</label>
+            <select id="notaRapDisc" onchange="loadNotaRap()">
+              <option value="">Selecione...</option>
+            </select>
+          </div>
+        </div>
+        <textarea class="nota-rap-area" id="notaRapText" placeholder="Anote aqui resumos, dúvidas, ideias..." oninput="saveNotaRap()"></textarea>
+        <div style="font-size:0.72rem;color:var(--ts);margin-top:4px" id="notaRapStatus">Salvo automaticamente 🌸</div>
+        <div style="margin-top:10px">
+          <button class="btn btn-g" style="font-size:0.78rem" onclick="exportPDF()">📄 Exportar notas em PDF</button>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:0">
+      <div class="card-title">🎓 Calculadora de média mínima</div>
+      <p style="font-size:0.82rem;color:var(--ts);margin-bottom:12px">Descubra qual nota você precisa tirar para passar!</p>
+      <div class="fr">
+        <div class="fg"><label>Nota da 1ª prova</label><input type="number" id="mmN1" placeholder="Ex: 7.5" step="0.1" oninput="calcMM()"></div>
+        <div class="fg"><label>Nota da 2ª prova</label><input type="number" id="mmN2" placeholder="Ex: 6.0" step="0.1" oninput="calcMM()"></div>
+        <div class="fg"><label>Média mínima para passar</label><input type="number" id="mmMin" placeholder="Ex: 7.0" step="0.1" value="7.0" oninput="calcMM()"></div>
+        <div class="fg"><label>Quantas provas no total</label><input type="number" id="mmTotal" placeholder="Ex: 3" step="1" value="3" oninput="calcMM()"></div>
+      </div>
+      <div id="mmResult"></div>
+    </div>
+  </div>
+
   <div class="sec" id="sec-config">
     <div class="sec-hdr"><div class="sec-title">Meu Perfil</div><div class="sec-sub">Configure suas notificações por email</div></div>
     <div id="configContent"></div>
@@ -228,6 +349,10 @@ input:focus,select:focus,textarea:focus{border-color:var(--ac);background:var(--
     <div class="fr">
       <div class="fg"><label>Data de entrega</label><input type="date" id="tData"></div>
       <div class="fg"><label>Disciplina</label><input type="text" id="tDisc" placeholder="Ex: Direito Civil"></div>
+    </div>
+    <div class="fr">
+      <div class="fg"><label>Prioridade</label><select id="tPrior"><option value="alta">🔴 Alta</option><option value="normal" selected>🟡 Normal</option><option value="baixa">🟢 Baixa</option></select></div>
+      <div class="fg"><label>Link (opcional)</label><input type="url" id="tLink" placeholder="https://..."></div>
     </div>
     <div class="fr">
       <div class="fg"><label>Descrição (opcional)</label><input type="text" id="tDesc" placeholder="Detalhes do trabalho"></div>
@@ -381,7 +506,7 @@ function showSec(id,btn){
   window.__ra();
 }
 
-window.__ra=function(){rWho();rAgenda();rTrabalhos();rCalendario();rNotas();rEstudos();rConfig();checkRem();};
+window.__ra=function(){rWho();rAgenda();rTrabalhos();rCalendario();rNotas();rEstudos();rConfig();checkRem();loadNotaRapDiscs();};
 
 // ── WHO CHIPS ──
 function rWho(){
@@ -389,7 +514,8 @@ function rWho(){
   allUserNames().forEach(u=>{
     const chip=document.createElement('span');chip.className='who-chip'+(u===me()?' me':'');
     const isMine=u===me();
-    chip.innerHTML=`<span>${isMine?'✓ ':''}<strong>${u}</strong></span><button class="${isMine?'rm-me':'rm-other'}" onclick="rmUser('${u}')" title="Remover ${u}">×</button>`;
+    const av=getAvatar(u);
+    chip.innerHTML=`<span class="avatar" style="background:${av.bg};color:white">${av.letter}</span><span>${isMine?'✓ ':''}<strong>${u}</strong></span><button class="${isMine?'rm-me':'rm-other'}" onclick="rmUser('${u}')" title="Remover ${u}">×</button>`;
     chip.onclick=(e)=>{if(e.target.tagName==='BUTTON')return;if(!isMine)toast('Você está vendo o perfil de '+u+' 🌷');};
     c.appendChild(chip);
   });
@@ -502,12 +628,14 @@ function rTrabalhos(){
   }
   const users=allUserNames();
   trabs.forEach((t,ti)=>{
-    const card=document.createElement('div');card.className='trab-item';
+    const card=document.createElement('div');card.className='trab-item prior-'+(t.prior||'normal');
     const df=t.data?new Date(t.data+'T00:00:00').toLocaleDateString('pt-BR'):'';
+    const priorClass=t.prior||'normal';
+    const priorLabel={alta:'🔴 Alta',normal:'🟡 Normal',baixa:'🟢 Baixa'}[priorClass]||'Normal';
     card.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:flex-start">
       <div>
-        <div class="trab-title">${t.titulo}</div>
-        <div class="trab-meta">${t.disc?'📚 '+t.disc+' · ':''}${df?'📅 '+df:''}${t.desc?' · '+t.desc:''}</div>
+        <div class="trab-title">${t.titulo} <span class="prior-badge ${priorClass}">${priorLabel}</span></div>
+        <div class="trab-meta">${t.disc?'📚 '+t.disc+' · ':''}${df?'📅 '+df:''}${t.desc?' · '+t.desc:''}${t.link?` · <a href="${t.link}" target="_blank" style="color:var(--ac);font-size:0.75rem">🔗 Link</a>`:''}</div>
       </div>
       ${me()?`<button class="btn-ds" onclick="rmTrab(${ti})">Remover</button>`:''}
     </div>
@@ -537,7 +665,7 @@ function rTrabalhos(){
 async function saveTrab(){
   const titulo=document.getElementById('tTit').value.trim();if(!titulo)return;
   const g=geral();if(!g.trabalhos)g.trabalhos=[];
-  g.trabalhos.push({id:Date.now().toString(),titulo,data:document.getElementById('tData').value,disc:document.getElementById('tDisc').value.trim(),desc:document.getElementById('tDesc').value.trim(),lembrete:parseInt(document.getElementById('tLemb').value)});
+  g.trabalhos.push({id:Date.now().toString(),titulo,data:document.getElementById('tData').value,disc:document.getElementById('tDisc').value.trim(),desc:document.getElementById('tDesc').value.trim(),lembrete:parseInt(document.getElementById('tLemb').value),prior:document.getElementById('tPrior').value,link:document.getElementById('tLink').value.trim()});
   await window.__fb.saveGeral(g);closeModals();rTrabalhos();toast('Trabalho adicionado! 🌸');
 }
 async function rmTrab(idx){
@@ -823,7 +951,137 @@ async function checkEmailReminders(){
   localStorage.setItem('email_last_check_'+me(),todayStr);
 }
 
-Object.assign(window,{showSec,openModal,closeModals,doLogin,rmUser,opAula,saveAula,rmAula,saveTrab,rmTrab,toggleEntrega,saveEvento,rmEvento,changeMonth,addDisc,addNota,upNota,rmNota,rmDisc,rMedia,addEstudo,togEst,rmEst,saveEmail,testEmail,rConfig});
+// ── DARK MODE ──
+function toggleDark(){
+  document.body.classList.toggle('dark');
+  const isDark=document.body.classList.contains('dark');
+  localStorage.setItem('darkMode',isDark?'1':'0');
+  document.getElementById('darkBtn').textContent=isDark?'☀️ Claro':'🌙 Escuro';
+}
+if(localStorage.getItem('darkMode')==='1'){document.body.classList.add('dark');document.getElementById('darkBtn').textContent='☀️ Claro';}
+
+// ── BUSCA RÁPIDA ──
+function doSearch(q){
+  const box=document.getElementById('searchResults');
+  if(!q||q.length<2){box.classList.remove('show');return;}
+  const ql=q.toLowerCase();const results=[];
+  // busca em trabalhos
+  (geral().trabalhos||[]).forEach(t=>{if(t.titulo.toLowerCase().includes(ql)||( t.disc&&t.disc.toLowerCase().includes(ql))){results.push({icon:'📋',tag:'Trabalho',text:t.titulo+(t.disc?' · '+t.disc:''),sub:t.data?new Date(t.data+'T00:00:00').toLocaleDateString('pt-BR'):''});}});
+  // busca em estudos
+  (geral().estudos||[]).forEach(e=>{if(e.titulo.toLowerCase().includes(ql)||(e.disc&&e.disc.toLowerCase().includes(ql))){results.push({icon:'📚',tag:'Estudos',text:e.titulo+(e.disc?' · '+e.disc:''),sub:e.addedBy||''});}});
+  // busca em eventos de todos os usuários
+  Object.keys(window.__G.users).forEach(u=>{(window.__G.users[u].eventos||[]).forEach(ev=>{if(ev.titulo.toLowerCase().includes(ql)){results.push({icon:'📅',tag:'Evento',text:ev.titulo,sub:ev.data?new Date(ev.data+'T00:00:00').toLocaleDateString('pt-BR'):''});}});});
+  // busca em agenda geral
+  Object.entries(geral().agenda||{}).forEach(([dia,aulas])=>{aulas.forEach(a=>{if(a.disc.toLowerCase().includes(ql)||(a.prof&&a.prof.toLowerCase().includes(ql))){results.push({icon:'🗓️',tag:'Agenda',text:a.disc,sub:dia+(a.prof?' · '+a.prof:'')});}});});
+  if(!results.length){box.innerHTML='<div style="color:var(--ts);font-size:0.83rem;padding:4px">Nenhum resultado encontrado.</div>';box.classList.add('show');return;}
+  box.innerHTML='<div style="font-size:0.75rem;color:var(--ts);margin-bottom:8px">'+results.length+' resultado(s) para "'+q+'"</div>'+results.slice(0,10).map(r=>`<div class="sr-item"><span style="font-size:1rem">${r.icon}</span><span class="sr-tag">${r.tag}</span><span style="flex:1"><strong>${r.text}</strong>${r.sub?'<br><span style="font-size:0.72rem;color:var(--ts)">'+r.sub+'</span>':''}</span></div>`).join('');
+  box.classList.add('show');
+}
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap')&&!e.target.closest('.search-results')){const b=document.getElementById('searchResults');if(b)b.classList.remove('show');}});
+
+// ── POMODORO ──
+let pomInterval=null,pomSeconds=25*60,pomTotal=25*60,pomCyclesCount=parseInt(localStorage.getItem('pomCycles')||'0'),pomMode='foco';
+const pomModes={foco:{s:25*60,l:'Foco 🎯'},curta:{s:5*60,l:'Pausa ☕'},longa:{s:15*60,l:'Pausa Longa 🌿'}};
+function setPomMode(m){
+  pomMode=m;clearInterval(pomInterval);pomInterval=null;
+  pomSeconds=pomModes[m].s;pomTotal=pomModes[m].s;
+  document.querySelectorAll('.pom-mode-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('btn'+m.charAt(0).toUpperCase()+m.slice(1)).classList.add('active');
+  document.getElementById('pomLabel').textContent=pomModes[m].l;
+  document.getElementById('pomStartBtn').style.display='';
+  document.getElementById('pomPauseBtn').style.display='none';
+  updatePomDisplay();
+}
+function updatePomDisplay(){
+  const m=String(Math.floor(pomSeconds/60)).padStart(2,'0');
+  const s=String(pomSeconds%60).padStart(2,'0');
+  document.getElementById('pomTime').textContent=m+':'+s;
+  const pct=pomSeconds/pomTotal;
+  const circ=document.getElementById('pomCircle');
+  if(circ)circ.style.strokeDashoffset=502*(1-pct);
+}
+function pomStart(){
+  if(pomInterval)return;
+  document.getElementById('pomStartBtn').style.display='none';
+  document.getElementById('pomPauseBtn').style.display='';
+  pomInterval=setInterval(()=>{
+    pomSeconds--;updatePomDisplay();
+    if(pomSeconds<=0){
+      clearInterval(pomInterval);pomInterval=null;
+      if(pomMode==='foco'){pomCyclesCount++;localStorage.setItem('pomCycles',pomCyclesCount);document.getElementById('pomCycles').textContent='🌸 Ciclos completados hoje: '+pomCyclesCount;}
+      document.getElementById('pomStartBtn').style.display='';
+      document.getElementById('pomPauseBtn').style.display='none';
+      toast(pomMode==='foco'?'🎉 Pomodoro completo! Hora de descansar!':'☕ Pausa concluída! Bora focar!');
+      try{new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAA').play();}catch(e){}
+    }
+  },1000);
+}
+function pomPause(){clearInterval(pomInterval);pomInterval=null;document.getElementById('pomStartBtn').style.display='';document.getElementById('pomPauseBtn').style.display='none';}
+function pomReset(){pomPause();pomSeconds=pomTotal;updatePomDisplay();}
+// init pomodoro display
+document.addEventListener('DOMContentLoaded',()=>{updatePomDisplay();document.getElementById('pomCycles').textContent='🌸 Ciclos completados hoje: '+pomCyclesCount;});
+
+// ── ANOTAÇÕES RÁPIDAS ──
+function loadNotaRapDiscs(){
+  const sel=document.getElementById('notaRapDisc');if(!sel)return;
+  const me_=me();const discs=me_?(window.__G.users[me_]||{}).disciplinas||[]:[];
+  const extra=['Processo Penal','Direito Civil – Coisas','Dir. Processual Civil','Recursos Cíveis','Dir. Internacional','Dir. Agrário','Extensão VII'];
+  const all=[...new Set([...discs.map(d=>d.nome),...extra])];
+  sel.innerHTML='<option value="">Selecione...</option>'+all.map(d=>`<option value="${d}">${d}</option>`).join('');
+}
+function loadNotaRap(){
+  const disc=document.getElementById('notaRapDisc').value;
+  const key='notaRap_'+(me()||'geral')+'_'+disc;
+  document.getElementById('notaRapText').value=disc?localStorage.getItem(key)||'':'';
+}
+function saveNotaRap(){
+  const disc=document.getElementById('notaRapDisc').value;if(!disc)return;
+  const key='notaRap_'+(me()||'geral')+'_'+disc;
+  localStorage.setItem(key,document.getElementById('notaRapText').value);
+  document.getElementById('notaRapStatus').textContent='Salvo ✓ '+new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+}
+
+// ── EXPORTAR PDF ──
+function exportPDF(){
+  const me_=me();if(!me_){toast('Entre no seu perfil primeiro! 🌸');return;}
+  const discs=(window.__G.users[me_]||{}).disciplinas||[];
+  let html='<html><head><meta charset="UTF-8"><style>body{font-family:sans-serif;padding:20px;color:#4a2830;}h1{color:#c9848e;}h2{color:#e8798a;border-bottom:1px solid #f0d0d5;padding-bottom:4px;margin-top:20px;}table{border-collapse:collapse;width:100%;}td,th{border:1px solid #f0d0d5;padding:6px 10px;font-size:13px;}th{background:#fce7eb;}</style></head><body>';
+  html+=`<h1>🌸 Planejadora Acadêmica — Notas de ${me_}</h1>`;
+  html+=`<p style="color:#a07078;font-size:13px">Gerado em ${new Date().toLocaleDateString('pt-BR')}</p>`;
+  discs.forEach(d=>{
+    html+=`<h2>${d.nome}</h2><table><tr><th>Avaliação</th><th>Vale</th><th>Obtive</th><th>Média</th></tr>`;
+    d.notas.forEach(n=>{const m=n.obtida!==''&&!isNaN(n.obtida)?((parseFloat(n.obtida)/parseFloat(n.valor||10))*10).toFixed(1):'—';html+=`<tr><td>${n.desc}</td><td>${n.valor}</td><td>${n.obtida||'—'}</td><td>${m}</td></tr>`;});
+    html+='</table>';
+    // anotações rápidas
+    const nota=localStorage.getItem('notaRap_'+me_+'_'+d.nome);
+    if(nota)html+=`<div style="background:#fff1f3;border-left:3px solid #e8798a;padding:8px 12px;margin-top:8px;font-size:13px;border-radius:0 8px 8px 0"><strong>Anotações:</strong><br>${nota.replace(/\n/g,'<br>')}</div>`;
+  });
+  html+='</body></html>';
+  const w=window.open('','_blank');w.document.write(html);w.document.close();setTimeout(()=>w.print(),400);
+}
+
+// ── MÉDIA MÍNIMA ──
+function calcMM(){
+  const n1=parseFloat(document.getElementById('mmN1').value)||null;
+  const n2=parseFloat(document.getElementById('mmN2').value)||null;
+  const min=parseFloat(document.getElementById('mmMin').value)||7;
+  const total=parseInt(document.getElementById('mmTotal').value)||3;
+  const box=document.getElementById('mmResult');
+  const notas=[n1,n2].filter(n=>n!==null);
+  if(!notas.length){box.innerHTML='';return;}
+  const restantes=total-notas.length;
+  if(restantes<=0){const media=notas.reduce((a,b)=>a+b,0)/notas.length;const passou=media>=min;box.innerHTML=`<div class="mm-result"><div class="mm-big">${media.toFixed(2)}</div><div>${passou?'✅ Você já passou! Média: '+media.toFixed(2):'❌ Reprovado com média '+media.toFixed(2)}</div></div>`;return;}
+  const somaAtual=notas.reduce((a,b)=>a+b,0);
+  const necessaria=(min*total-somaAtual)/restantes;
+  const box_cls=necessaria<=10?'':'color:#c62828';
+  box.innerHTML=`<div class="mm-result"><div class="mm-big" style="${box_cls}">${necessaria<=0?'✅':necessaria>10?'⚠️':necessaria.toFixed(2)}</div><div>${necessaria<=0?'Você já garantiu a aprovação! 🎉':necessaria>10?'Infelizmente não é mais possível atingir a média com as provas restantes 😢':`Você precisa tirar pelo menos <strong>${necessaria.toFixed(2)}</strong> nas próximas ${restantes} prova(s)`}</div></div>`;
+}
+
+// ── AVATAR COLORS ──
+const AVATAR_COLORS=['#e8798a','#9b7fe8','#7fc9e8','#e8b07f','#7fe8a0','#e87fb0','#7fa4e8'];
+function getAvatar(name){const i=name.charCodeAt(0)%AVATAR_COLORS.length;return{bg:AVATAR_COLORS[i],letter:name.charAt(0).toUpperCase()};}
+
+Object.assign(window,{showSec,openModal,closeModals,doLogin,rmUser,opAula,saveAula,rmAula,saveTrab,rmTrab,toggleEntrega,saveEvento,rmEvento,changeMonth,addDisc,addNota,upNota,rmNota,rmDisc,rMedia,addEstudo,togEst,rmEst,saveEmail,testEmail,rConfig,toggleDark,doSearch,setPomMode,pomStart,pomPause,pomReset,calcMM,loadNotaRap,saveNotaRap,exportPDF});
 </script>
 </body>
 </html>

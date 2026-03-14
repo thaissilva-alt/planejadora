@@ -797,7 +797,7 @@ async function testEmail(){
 async function sendEmailJS(toEmail,nome,titulo,disciplina,data,quando){
   if(typeof emailjs==='undefined')return false;
   try{
-    await emailjs.send('planejadora','o2j8y1u',{name:nome,email:toEmail,titulo,disciplina,data,quando});
+    await emailjs.send('planejadora','template_tjkgdxo',{name:nome,email:toEmail,titulo,disciplina,data,quando});
     return true;
   }catch(e){console.error('EmailJS:',e);return false;}
 }
